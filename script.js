@@ -1,16 +1,14 @@
 $("#currentDay").text(moment().format("LLLL"));
-var clickBtn = $(".saveBtn");
+var clickBtn = $(".clickMe");
 var LSarray = [];
-var currentHour = moment().format("hA")
+var currentHour = moment().format("ha")
 
 $("table tr td:first-child").each(function(){
-    console.log($(this).text())
-    // if(moment($(this.text()).format("hA").isAfter(currentHour)){
-    //     this.setAttribute("style", "background-color: green")
-    // }
-})
-
-//moment(variable input from table).format(hA) -- for the for/ if loop regarding background.
+    if(moment($(this.text()))==moment().format("ha")){
+        this.nextElementSibling.firstChild.setAttribute("style", "background-color: red")
+    } else if (moment($(this).text(), "ha").isBefore(moment())) {
+   this.nextElementSibling.firstChild.setAttribute("style", "background-color: green")
+}});
 
 
 
