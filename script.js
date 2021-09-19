@@ -6,19 +6,18 @@ var tableBtn = $("#tableBtn");
 var LSarray =["","","","","","","","","",""];
 var temp = JSON.parse(localStorage.getItem("ToDos"));
 
+console.log(temp)
 if (temp === !null){
     LSarray = temp;
 }
-
+console.log(LSarray)
 //------- ask about using i in an each loop
 //secondChild.each(function(){
 //  XXXXXXXXXXXXX
 //})
 for(let i = 0; i < secondChild.length; i++){
     secondChild[i].setAttribute("data-index", i);
-    console.log(secondChild[i]);
-    console.log(LSarray[i]);
-   secondChild.eq(i).val(LSarray[i]);
+    secondChild.eq(i).val(LSarray[i]);
 };
 
 //event.target
@@ -34,11 +33,13 @@ $("tr td:first-child").each(function(){
 //     var element = this.target;
 
 // }
-console.log(tableBtn);
-  
-tableBtn.addEventListener("click", function(event){ 
+
+tableBtn.click(function(event){ 
+    console.log("click")
      var element = event.target;
+     console.log(element)
      if (element.matches(".clickMe") === true) {
+         console.log("yay")
        var index = element.previousElementSibling.firstChild.getAttribute("data-index");
        LSarray[index] = secondChild.eq(index).val();
        localStorage.setItem("ToDos", JSON.stringify(LSarray));
