@@ -1,34 +1,27 @@
 //sets the clock on page load
 $("#currentDay").text(moment().format("LLLL"));
-
+var secondChild = $("textarea");
 var clickBtn = $(".clickMe");
-var LSarray =["hello","hello","hello","hello","hello","hello","hello","hello","hello","hello"];
-//LSarray = JSON.parse(localStorage.getItem("ToDos"));
+var tableBtn = $("#tableBtn");
+var LSarray =["","","","","","","","","",""];
+var temp = JSON.parse(localStorage.getItem("ToDos"));
 
-// function init(){
-//   JSON.parse(localStorage.getItem("ToDos"));
-//   localStorage.setItem("ToDos", JSON.stringify(LSarray));
-//   $("table tr td:first-child").each(function(){
-
-//   })
-// }
-
-// ------- ask about using i in an each loop
-var secondChild = $("textarea")
-
-for(let i = 0; i < secondChild.length; i++){
-  console.log(LSarray[i])
-  console.log(secondChild[i])
-  if(LSarray[i] === !null){
-   secondChild.eq(i).val(LSarray[i]);
-  
+if (temp === !null){
+    LSarray = temp;
 }
 
-// $("table tr td")[1].each(function(){
-//   if Ls
-// })
+//------- ask about using i in an each loop
+//secondChild.each(function(){
+//  XXXXXXXXXXXXX
+//})
+for(let i = 0; i < secondChild.length; i++){
+    secondChild[i].setAttribute("data-index", i);
+    console.log(secondChild[i]);
+    console.log(LSarray[i]);
+   secondChild.eq(i).val(LSarray[i]);
+};
 
-
+//event.target
 //colours the time zones
 $("tr td:first-child").each(function(){
     if(moment($(this).text(), 'ha').isSame(moment(), "hour")){
@@ -41,5 +34,13 @@ $("tr td:first-child").each(function(){
 //     var element = this.target;
 
 // }
-//init();
-//clickBtn.addEventListener("click", function(event){});
+console.log(tableBtn);
+  
+tableBtn.addEventListener("click", function(event){ 
+     var element = event.target;
+     if (element.matches(".clickMe") === true) {
+       var index = element.previousElementSibling.firstChild.getAttribute("data-index");
+       LSarray[index] = secondChild.eq(index).val();
+       localStorage.setItem("ToDos", JSON.stringify(LSarray));
+       }
+});
