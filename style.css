@@ -76,6 +76,11 @@ table {
 .table td {
   padding: 0;
 }
+td:first-of-type,
+td:last-of-type {
+  vertical-align: middle;
+  text-align: center;
+}
 .form-control {
   border-radius: 0;
   border: none;
@@ -88,8 +93,7 @@ td button {
 .btnIsh {
   background-color: #77dd77;
 }
-td:first-child {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+
+.clickMe:hover {
+  cursor: pointer;
 }
