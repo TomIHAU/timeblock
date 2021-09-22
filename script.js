@@ -14,16 +14,11 @@ for(let i = 0; i < secondChild.length; i++){
     secondChild.eq(i).val(LSarray[i]);
 };
 
-// $(secondChild).each(function(element, i){
-//     element.setAttribute("data-index", i);
-//     element.val(LSarray[i]);
-// })
-
 $("tr td:first-child").each(function(){
     if(moment($(this).text(), 'ha').isSame(moment(), "hour")){
-        this.nextElementSibling.firstChild.setAttribute("style", "background-color: red")
+        this.nextElementSibling.firstChild.setAttribute("style", "background-color: #dd3535a2")
     } else if (moment($(this).text(), "ha").isAfter(moment())) {
-        this.nextElementSibling.firstChild.setAttribute("style", "background-color: green")
+        this.nextElementSibling.firstChild.setAttribute("style", "background-color: #1c7c1cb6")
 }
 });
 

@@ -85,15 +85,14 @@ td:last-of-type {
   border-radius: 0;
   border: none;
 }
-td button {
-  background-color: #77dd77;
-  height: 100%;
-  width: 100%;
-}
 .btnIsh {
   background-color: #77dd77;
 }
 
+.custom-textarea {
+  color: #000000;
+  background-color: #6866669f;
+}
 .clickMe:hover {
   cursor: pointer;
 }
