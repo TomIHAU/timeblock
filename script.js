@@ -9,10 +9,10 @@ if (temp != null){
     LSarray = temp;
 }
 
-for(let i = 0; i < secondChild.length; i++){
+$(secondChild).each(function(i){
     secondChild[i].setAttribute("data-index", i);
     secondChild.eq(i).val(LSarray[i]);
-};
+});
 
 $("tr td:first-child").each(function(){
     if(moment($(this).text(), 'ha').isSame(moment(), "hour")){
