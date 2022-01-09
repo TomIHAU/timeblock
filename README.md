@@ -1,4 +1,4 @@
-# week5homework---timeblock
+# Timeblock
 https://tomihau.github.io/week5homework---timeblock/
 
 Daily planner using moment.js and jquery. Background of time block changes based on time when page was loaded. The individual text areas save the input independently.
